@@ -15,7 +15,7 @@ We have written a code through Python that scrapes all the information returned 
 
 For the scrape, we searched “Dollar General”. When logging in to the items, OSHA addressed Dollar General under multiple names. We have included “Dollar General” and its subsidiaries dolgen’, ‘Dolgencorp’, and ‘DG Retail.’
 
-We have to create separate query lines with different time periods, “ 2012-12-19 - 2022-12-19” and “2010-01-01 - 2012-12-18” because the website only allows searching for a decade at a time. Our latest search date is Dec.19, 2022, because the establishment website only contains the data until this date as we conducted our scrape on Dec. 22, 2022/
+We have to create separate query lines with different time periods, “ 2012-12-19 - 2022-12-19” and “2010-01-01 - 2012-12-18” because the website only allows searching for a decade at a time. Our latest search date is Dec.19, 2022, because the establishment website only contains the data until this date as we conducted our scrape on Jan. 16, 2023.
 
 The scrape returned us with an error saying “No table found” for ‘DG Retail’ and ‘dolgen’ before 2012. After manually searching the website, we realized there are no violations cited under both names before 2012, which caused the error. So we deleted the “2010-01-01 - 2012-12-20” queries for both of the keywords.
 
@@ -32,10 +32,10 @@ After viewing the data we have gathered, we decided to join the activities_df, d
 For the penalty path, we located all the “current penalty” rows and exported them to a new csv.
 
 For the violations path, we located all the “current violation” rows and exported them to a new csv.
-# Dropping the Duplicates (Dollar General only)
-When doing final checks on the data, we discovered duplicated items in the Dollar General query. We couldn’t pin down the precise cause of the issue, but it appears that having the same search terms (in this case “Dollar General” and “Dolgencorp”) featured both in the query terms and also in results (search results featured both terms) confused the program and it returned multiple results or rows of data for the same inspection number.
+# Dropping the Duplicates
+When doing final checks on the data, we discovered duplicated items in the Dollar General and Dollar Tree query. We couldn’t pin down the precise cause of the issue, but it appears that having the same search terms (in this case “Dollar General” and “Dolgencorp”) featured both in the query terms and also in results (search results featured both terms) confused the program and it returned multiple results or rows of data for the same inspection number.
 
-To be on the safe side, we double-checked all the duplicates to make sure that all their information matched, then we dropped the duplicates via ‘df.drop_duplicates’, only leaving one match for each inspection number. 
+We dropped the duplicates via ‘df.drop_duplicates’, only leaving one match for each inspection number. The duplicates were only found in our Dollar General and Dollar Tree queries.
 
 We also checked our results against the data published at [Violation Tracker](https://violationtracker.goodjobsfirst.org/?parent=dollar-general&order=pen_year&sort=). Through inspection, we concluded that no similar issue occurred with Dollar Tree, Walmart, or the Kroger database. We have kept the drop duplicates step for each of the retailers nevertheless.
 # Getting the information
