@@ -15,7 +15,7 @@ We have written a code through Python that scrapes all the information returned 
 
 For the scrape, we searched “Dollar General”. When logging in to the items, OSHA addressed Dollar General under multiple names. We have included “Dollar General” and its subsidiaries dolgen’, ‘Dolgencorp’, and ‘DG Retail.’
 
-We have to create separate query lines with different time periods, “ 2012-12-19 - 2022-12-19” and “2010-01-01 - 2012-12-18” because the website only allows searching for a decade at a time. Our latest search date is Dec.19, 2022, because the establishment website only contains the data until this date as we conducted our scrape on Dec. 22, 2022/
+We have to create separate query lines with different time periods, “ 2012-12-19 - 2022-12-19” and “2010-01-01 - 2012-12-18” because the website only allows searching for a decade at a time. Our latest search date is Dec.19, 2022, because the establishment website only contains the data until this date as we conducted our scrape on Jan. 16, 2023/
 
 The scrape returned us with an error saying “No table found” for ‘DG Retail’ and ‘dolgen’ before 2012. After manually searching the website, we realized there are no violations cited under both names before 2012, which caused the error. So we deleted the “2010-01-01 - 2012-12-20” queries for both of the keywords.
 
