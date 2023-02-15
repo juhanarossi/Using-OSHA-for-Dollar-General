@@ -32,10 +32,10 @@ After viewing the data we have gathered, we decided to join the activities_df, d
 For the penalty path, we located all the “current penalty” rows and exported them to a new csv.
 
 For the violations path, we located all the “current violation” rows and exported them to a new csv.
-# Dropping the Duplicates (Dollar General only)
-When doing final checks on the data, we discovered duplicated items in the Dollar General query. We couldn’t pin down the precise cause of the issue, but it appears that having the same search terms (in this case “Dollar General” and “Dolgencorp”) featured both in the query terms and also in results (search results featured both terms) confused the program and it returned multiple results or rows of data for the same inspection number.
+# Dropping the Duplicates
+When doing final checks on the data, we discovered duplicated items in the Dollar General and Dollar Tree query. We couldn’t pin down the precise cause of the issue, but it appears that having the same search terms (in this case “Dollar General” and “Dolgencorp”) featured both in the query terms and also in results (search results featured both terms) confused the program and it returned multiple results or rows of data for the same inspection number.
 
-To be on the safe side, we double-checked all the duplicates to make sure that all their information matched, then we dropped the duplicates via ‘df.drop_duplicates’, only leaving one match for each inspection number. 
+We dropped the duplicates via ‘df.drop_duplicates’, only leaving one match for each inspection number. The duplicates were only found in our Dollar General and Dollar Tree queries.
 
 We also checked our results against the data published at [Violation Tracker](https://violationtracker.goodjobsfirst.org/?parent=dollar-general&order=pen_year&sort=). Through inspection, we concluded that no similar issue occurred with Dollar Tree, Walmart, or the Kroger database. We have kept the drop duplicates step for each of the retailers nevertheless.
 # Getting the information
